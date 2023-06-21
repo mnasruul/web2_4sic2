@@ -5,7 +5,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function showLogin() 
@@ -21,6 +21,8 @@ class LoginController extends Controller
                 'password' => 'Email atau Password salah!'
             ]);
         }
-        return view("admin.dashboard");
+        Auth::login($user, $request->remember);
+        // return view("admin.dashboard");
+        return to_route("dashboard");
     }
 }
