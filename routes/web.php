@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,5 +28,9 @@ Route::get('/dashboard', function () {
 })->name('dashboard')->middleware('auth');
 
 
+Route::get('/categories', [CategoryController::class, 'index'])->middleware('auth')->name('categories.index');
+Route::get('/categories/1', [CategoryController::class, 'edit'])->middleware('auth')->name('categories.edit');
+Route::get('/tags', [TagController::class, 'index'])->middleware('auth')->name('tags.index');
+Route::get('/tags/1', [TagController::class, 'edit'])->middleware('auth')->name('tags.edit');
 Route::post('/logout',LogoutController::class)->name('logout');
 

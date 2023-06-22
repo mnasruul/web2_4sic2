@@ -2,13 +2,13 @@
     <div class="container pt-4"> 
         <div class="row mt-4">
             <div class="col-md-8 mt-4">
-                <h2>Data Kategori </h2>    
+                <h2>Data Tag </h2>    
             </div>    
         </div>
         <div class="row"> 
             <div class="col-sm-7 mt-4">
             <a href="" class="btn btn-primary">
-                Kategori Baru
+                Tag Baru
                 </a>   
             </div>  
         </div>
@@ -16,17 +16,17 @@
             <table class="table table-striped table-sm"> 
                 <thead> 
                     <th scope="col">#</th>    
-                    <th scope="col">Nama Kategori</th>    
+                    <th scope="col">Nama Tag</th>    
                     <th scope="col">Aksi</th>    
                 </thead>
                 <tbody> 
-                    @empty(!$categories)
-                        @foreach ($categories as $category)
+                    @empty(!$tags)
+                        @foreach ($tags as $tag)
                             <tr> 
-                                <td> {{ $categories->firstItem() + $loop->index}} </td>
-                                <td> {{ $category->name}} </td>
+                                <td> {{ $tags->firstItem() + $loop->index}} </td>
+                                <td> {{ $tag->name}} </td>
                                 <td> 
-                                    <a href="{{ route('categories.edit', $category) }}">
+                                    <a href="{{ route('tags.edit', $tag) }}">
                                         <button class="badge bg-warning">Edit </button>
                                     </a>
                                     <button type="button" class="bg-danger">Hapus </button>    
@@ -36,8 +36,8 @@
                     @endempty
                 </tbody>
             </table> 
-            @if ($categories instanceof \Illuminate\Pagination\LengthAwarePaginator) 
-                {{ $categories->links() }}
+            @if ($tags instanceof \Illuminate\Pagination\LengthAwarePaginator) 
+                {{ $tags->links() }}
             @endif 
         </div>
     </div>

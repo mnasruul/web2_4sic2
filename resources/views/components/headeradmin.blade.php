@@ -14,8 +14,8 @@
               Berita
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Kategori</a></li>
-              <li><a class="dropdown-item" href="#">Tag</a></li>
+              <li><a class="dropdown-item" href="{{ route('categories.index')}}">Kategori</a></li>
+              <li><a class="dropdown-item" href="{{ route('tags.index')}}">Tag</a></li>
               <li><a class="dropdown-item" href="#">Data Berita</a></li>
             </ul>
           </li>
